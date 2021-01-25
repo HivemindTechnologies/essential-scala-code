@@ -18,7 +18,7 @@ object Stats {
   // Use this helper method in your answers:
   def fetchUptime(hostname: String): Future[Long] = {
     Future {
-      Thread.sleep((math.random * 100).toLong)
+      Thread.sleep((math.random() * 100).toLong)
       hostname.hashCode % 10000L
     }
   }
@@ -26,7 +26,7 @@ object Stats {
   // Use this helper method in your answers:
   def fetchRequestsHandled(hostname: String): Future[Int] = {
     Future {
-      Thread.sleep((math.random * 100).toLong)
+      Thread.sleep((math.random() * 100).toLong)
       hostname.reverse.hashCode % 100
     }
   }

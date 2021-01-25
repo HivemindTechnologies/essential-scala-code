@@ -51,8 +51,8 @@ object Example1Expressions {
   val methodCalls2 = "Hello world!".length
   val methodCalls3 = "Hello world!".toUpperCase
 
-  def methodCalls4() = StdIn.readLine
-  def methodCalls5() = math.random
+  def methodCalls4() = StdIn.readLine()
+  def methodCalls5() = math.random()
   def methodCalls6() = println("Hello world!")
 
   val methodCalls7 = Math.random
@@ -178,6 +178,6 @@ object Example1Expressions {
   def puzzler5 = "3".toInt
   def puzzler6 = "cake".toInt
 
-  def puzzler7 = if(math.random < 0.5) "Hello" else null
-  def puzzler8 = if(math.random < 0.5) "Hello" else throw new Exception("Aaargh!")
+  def puzzler7 = if(math.random() < 0.5) "Hello" else null
+  def puzzler8 = if(math.random() < 0.5) "Hello" else throw new Exception("Aaargh!")
 }
