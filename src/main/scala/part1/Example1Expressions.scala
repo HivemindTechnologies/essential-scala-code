@@ -39,6 +39,11 @@ object Example1Expressions {
   val operators8 = "a" == "a"
   val operators9 = "a" != "a"
 
+  case class Foo(value : Int)
+
+  val b = Foo(1) == Foo(1)
+  // true
+
   //  __  __      _   _               _             _ _
   // |  \/  | ___| |_| |__   ___   __| |   ___ __ _| | |___
   // | |\/| |/ _ \ __| '_ \ / _ \ / _` |  / __/ _` | | / __|
@@ -56,11 +61,13 @@ object Example1Expressions {
   def methodCalls6() = println("Hello world!")
 
   val methodCalls7 = Math.random
-  val methodCalls8 = List.apply(1, 2, 3)
+  val methodCalls8: List[Int] = List.apply(1, 2, 3)
+  val methodCalls81: List[Int] = List(1, 2, 3)
 
-  val methodCalls9  = methodCalls8.head
-  val methodCalls10 = methodCalls8.tail
-  val methodCalls11 = methodCalls8.apply(2)
+  val methodCalls9  = methodCalls8.head // first element
+  val methodCalls10 = methodCalls8.tail // remainder, List(2, 3)
+  val methodCalls11 = methodCalls8.apply(2) //
+  val methodCalls112 = methodCalls8(2) //
 
   val methodCalls12 = 123.toString
   val methodCalls13 = "123".toInt
@@ -74,7 +81,7 @@ object Example1Expressions {
 
   val infixOperators1 = 1 + 2
   val infixOperators2 = 1.+(2)
-  val infixOperators3 = "Hello world".take(5)
+  val infixOperators3 = "Hello world"
   val infixOperators4 = "Hello world" take 5
 
   // val infixOperators5 = a b c d e
@@ -86,7 +93,7 @@ object Example1Expressions {
   //  \____\___/|_| |_|\__,_|_|\__|_|\___/|_| |_|\__,_|_|___/
 
   val conditionals1 = if(Math.random < 0.5) "Alien" else "Predator"
-  val conditionals2 = if(Math.random < 0.5) "Alien" else 2001
+  val conditionals2 = if(Math.random < 0.5) "Alien" else 2001 // (random < 0.5)) ? "yes" : "no"
 
   //  ____  _            _
   // | __ )| | ___   ___| | _____
@@ -143,7 +150,7 @@ object Example1Expressions {
   val definitions1 = "A value"
   def definitions2 = "A method"
 
-  def definitions3: String = "Another value"
+  val definitions3: String = "Another value"
   def definitions4: String = "Another method"
 
   def definitions5(a: Int, b: Int) =

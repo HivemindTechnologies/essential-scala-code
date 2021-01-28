@@ -2,7 +2,9 @@ package part1
 
 object Exercise3bRecursion {
   def contains(numbers: List[Int], num: Int): Boolean = {
-    ???
+    if (numbers.isEmpty) false
+    else if (numbers.head == num) true
+    else contains(numbers.tail, num)
   }
 
   def doubleEachNumber(numbers: List[Int]): List[Int] = {

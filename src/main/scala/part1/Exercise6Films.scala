@@ -9,7 +9,7 @@ object Exercise6Films {
   // You DO NOT need to reference previous answers in later ones.
 
   def nameOfFilm(film: Film): String = {
-    ???
+    film.name
   }
 
   def filmsByDirector(director: Director): List[Film] = {

@@ -2,23 +2,35 @@ package part1
 
 object Exercise4PatternMatching {
   def greetNTimes(name: String, n: Int): Unit = {
-    ???
+    n match {
+      case 0 => println(s"Hello $name")
+      case n => greetNTimes(name, n-1)
+    }
   }
 
   def contains(numbers: List[Int], num: Int): Boolean = {
-    ???
+    numbers match {
+      case Nil          => false
+      case head :: tail => head == num || contains(tail, num) 
+    }
   }
 
   def doubleEachNumber(numbers: List[Int]): List[Int] = {
-    ???
+    numbers
   }
 
   def total(numbers: List[Int]): Int = {
-    ???
+    numbers match {
+      case Nil          => 0
+      case head :: tail => head + total(tail)
+    }
   }
 
   def append(a: List[Int], b: List[Int]): List[Int] = {
-    ???
+    a match {
+      case Nil => b
+      case head :: tail => head :: append(tail, b)
+    }
   }
 
   def main(args: Array[String]): Unit = {
