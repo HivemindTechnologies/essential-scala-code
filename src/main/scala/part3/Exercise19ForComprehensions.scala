@@ -19,7 +19,7 @@ object Exercise19ForComprehensions {
     ???
   }
 
-  // Return a list of messages of the form "Tonight! <FILM> by <DIRECTOR>!"
+  // Return a list of messages of the form "Tonight only! <FILM> by <DIRECTOR>!"
   def tonightOnlyMessages(directors: List[Director]): List[String] = {
     ???
   }

@@ -50,27 +50,29 @@ object Exercise14GenericList {
   //         Rect(30, 20, Color(1, 0, 1)),
   //         MyNil())))
 
-  println("exists")
-  // println(numbers.exists(n => n > 1))
-  // println(strings.exists(s => s.startsWith("b")))
-  // println(shapes.exists(s => s.area > 100))
+  def main(args: Array[String]): Unit = {
+    println("exists")
+    // println(numbers.exists(n => n > 1))
+    // println(strings.exists(s => s.startsWith("b")))
+    // println(shapes.exists(s => s.area > 100))
 
-  println("map")
-  // println(numbers.map(n => n + 1))
-  // println(strings.map(s => s + "!"))
-  // println(shapes.map(s => s.toString))
+    println("map")
+    // println(numbers.map(n => n + 1))
+    // println(strings.map(s => s + "!"))
+    // println(shapes.map(s => s.toString))
 
-  println("reduce")
-  // println(numbers.reduce(0, (a, b) => a + b))
-  // println(strings.reduce("", (a, b) => a + b))
+    println("reduce")
+    // println(numbers.reduce(0, (a, b) => a + b))
+    // println(strings.reduce("", (a, b) => a + b))
 
-  println("append")
-  // println(numbers.append(numbers))
-  // println(strings.append(strings))
-  // println(shapes.append(shapes))
+    println("append")
+    // println(numbers.append(numbers))
+    // println(strings.append(strings))
+    // println(shapes.append(shapes))
 
-  println("filter")
-  // println(numbers.filter(n => n > 1))
-  // println(strings.filter(s => s.startsWith("b")))
-  // println(shapes.filter(s => s.area > 50))
+    println("filter")
+    // println(numbers.filter(n => n > 1))
+    // println(strings.filter(s => s.startsWith("b")))
+    // println(shapes.filter(s => s.area > 50))
+  }
 }
