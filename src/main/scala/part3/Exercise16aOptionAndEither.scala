@@ -4,43 +4,64 @@ import films.{Director, Film}
 
 object Exercise16aOptionAndEither {
   def directorWithLastName(directors: List[Director], lastName: String): Option[Director] = {
-    ???
+    directors.find(_.lastName == lastName)
   }
 
   def directorWithLastNameOrFailure(directors: List[Director], lastName: String): Either[String, Director] = {
-    ???
+    directors.find(_.lastName == lastName).toRight(s"$lastName not found")
   }
 
   def yearOfBirthOfDirectorWithLastName(directors: List[Director], lastName: String): Option[Int] = {
-    ???
+    // directors.find(_.lastName == lastName).map(_.yearOfBirth)
+    directors.collectFirst{ case d if d.lastName == lastName =>
+       d.yearOfBirth
+    }
   }
 
   def yearOfBirthOfDirectorWithLastNameOrFailure(directors: List[Director], lastName: String): Either[String, Int] = {
-    ???
+    directors.find(_.lastName == lastName).map(_.yearOfBirth).toRight(s"$lastName not found")
   }
 
   def filmsByDirectorWithLastName(directors: List[Director], lastName: String): List[Film] = {
-    ???
+    // directors.find(_.lastName == lastName) match {
+    //   case None => Nil
+    //   case Some(value) => value.films
+    // }
+
+    //directors.find(_.lastName == lastName).toList.flatMap(_.films)
+
+    // directors
+    //   .collect{ case d if d.lastName == lastName => d.films}
+    //   .flatten
+    
+    directors
+      .filter(_.lastName == lastName)
+      .flatMap(_.films)
   }
 
   def earliestFilmByDirectorWithLastName(directors: List[Director], lastName: String): Option[Film] = {
-    ???
+    filmsByDirectorWithLastName(directors, lastName)
+      .minByOption(_.yearOfRelease)
   }
 
   def earliestFilmByDirectorWithLastNameOrFailure(directors: List[Director], lastName: String): Either[String, Film] = {
-    ???
+    earliestFilmByDirectorWithLastName(directors, lastName)
+      .toRight("No match")
   }
 
   def namesOfFilmsByDirectorWithLastName(directors: List[Director], lastName: String): List[String] = {
-    ???
+    filmsByDirectorWithLastName(directors, lastName)
+      .map(_.name)
   }
 
   def nameOfEarliestFilmByDirectorWithLastName(directors: List[Director], lastName: String): Option[String] = {
-    ???
+    earliestFilmByDirectorWithLastName(directors, lastName)
+      .map(_.name)
   }
 
   def nameOfEarliestFilmByDirectorWithLastNameOrFailure(directors: List[Director], lastName: String): Either[String, String] = {
-    ???
+    nameOfEarliestFilmByDirectorWithLastName(directors, lastName)
+      .toRight("No match")
   }
 
   def main(args: Array[String]): Unit = {

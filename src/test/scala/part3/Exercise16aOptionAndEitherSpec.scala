@@ -10,9 +10,9 @@ class Exercise16aOptionAndEitherSpec extends AnyFlatSpec with Matchers {
 
   "directorWithLastName" should "do the right thing" in {
     pending
-    // directorWithLastName(directors, "Nolan") should equal(Some(nolan))
-    // directorWithLastName(directors, "Some Guy") should equal(Some(someGuy))
-    // directorWithLastName(directors, "DROP TABLE *;") should equal(None)
+    directorWithLastName(directors, "Nolan") should equal(Some(nolan))
+    directorWithLastName(directors, "Some Guy") should equal(Some(someGuy))
+    directorWithLastName(directors, "DROP TABLE *;") should equal(None)
   }
 
   "directorWithLastNameOrFailure" should "do the right thing" in {

@@ -4,8 +4,64 @@ package part2
 
 // Step 1. Implement MyList[A] below
 
-sealed abstract class MyList[A]
 
+//Covariance
+// A, B. B <: A 
+// sealed abstract class MyList[+A]
+// MyList[B] <: MyList[A]
+
+
+//Contravariance
+// A, B. B <: A 
+// sealed abstract class MyList[-A]
+// MyList[B] :> MyList[A]
+
+// sealed trait Vehicle
+// case class Car extends Vehicle 
+// Car <: Vehicle
+// List[Car] :> List[Vehicle]
+sealed abstract class MyList[A]
+{
+  def exists(f: A => Boolean): Boolean =
+    this match {
+      case MyNil()            => false
+      case MyPair(head, tail) => f(head) || tail.exists(f)
+    }
+  def map[B](f: A => B): MyList[B] =
+    this match {
+      case MyNil()            => MyNil()
+      case MyPair(head, tail) => MyPair(f(head), tail.map(f))
+    }
+  def reduce(accum: A, f: (A, A) => A): A =
+    this match {
+      case MyNil()            => accum
+      case MyPair(head, tail) => tail.reduce(f(accum, head), f)
+    }
+
+  def append(list: MyList[A]): MyList[A] =
+    this match {
+      case MyNil()            => list
+      case MyPair(head, tail) => MyPair(head, tail.append(list))
+    }
+  def filter(predicate: A => Boolean): MyList[A] =
+    this match {
+      case MyNil() => MyNil()
+      case MyPair(head, tail) =>
+        if (predicate(head)) MyPair(head, tail.filter(predicate))
+        else tail.filter(predicate)
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 // Step 2. Implement the following methods
 // using methods from IntList as templates:
 
